@@ -6,6 +6,10 @@ provider "aws" {
 }
 
 resource "aws_db_instance" "humburguer_db" {
+
+    lifecycle {
+      create_before_destroy = true
+    }
     allocated_storage    = 15
     storage_type         = "gp2"
     engine               = "mysql"
